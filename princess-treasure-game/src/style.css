@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #f7d9e3;
+  font-family: 'Trebuchet MS', 'Comic Sans MS', system-ui, sans-serif;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#game {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* On-screen joystick: shown only on touch devices (see .touch class). */
+#joystick {
+  position: fixed;
+  left: 28px;
+  bottom: 28px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 18px rgba(120, 60, 90, 0.25);
+  display: none;
+}
+
+#joystick-knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, #ffb6d0 60%, #e87aa5);
+  box-shadow: 0 4px 10px rgba(120, 60, 90, 0.35);
+}
+
+body.touch #joystick {
+  display: block;
+}
+
+#hint {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #8a3b62;
+  font-size: 22px;
+  box-shadow: 0 4px 14px rgba(120, 60, 90, 0.2);
+  transition: opacity 1s;
+  pointer-events: none;
+}
+
+body.touch #hint {
+  display: none;
+}
+
+#hint.hide {
+  opacity: 0;
+}
